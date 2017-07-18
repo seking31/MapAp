@@ -11,6 +11,11 @@ zoom: number = 10;
 //start position
   lat: number = 39.75167;
   lng: number = -105.01417;
+  //Values
+  markerName: string;
+  markerLat: string;
+  markerLng: string;
+  markerDraggable: string;
   //markers
   markers: marker[] = [
     {
@@ -66,6 +71,21 @@ zoom: number = 10;
     var newLat = $event.coords.lat;
     var newLng = $event.coords.lng;
   }
+  addMarker(){
+    if(this.markerDraggable == 'Yes'){
+      var isDraggable = true;
+    }else{
+      var isDraggable = false;
+    }
+    var newMarker = {
+      name:this.markerName,
+      lat: parseFloat(this.markerLat),
+      lng: parseFloat(this.markerLng),
+      draggable: isDraggable,
+      openInfoWindow: true
+    }
+    this.markers.push(newMarker);
+   }
 }
 
 //Marker type
