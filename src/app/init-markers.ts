@@ -27,7 +27,7 @@ export class Init {
         }
       ];
 
-      localStorage.setItem('markers', JSON.stringify('markers') )
+      localStorage.setItem('markers', JSON.stringify(markers) )
     } else {
       console.log('Loading markers....')
     }

@@ -5,7 +5,7 @@ import {Init} from "../init-markers";
 export class MarkerService extends Init {
   constructor(){
     super();
-    console.log('MarkerService Init');
+    console.log('MarkerService Initialized');
     this.load();
   }
   getMarkers(){
