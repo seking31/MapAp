@@ -68,6 +68,7 @@ zoom: number = 10;
       openInfoWindow: true
     }
     this.markers.push(newMarker);
+    this._markerService.addMarker(newMarker)
    }
 }
 
