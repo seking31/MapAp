@@ -9,21 +9,26 @@ import { RouterModule, Routes }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
+import { BlankComponent } from './blank/blank.component';
 
 
 const appRoutes: Routes = [
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'app', component: AppComponent },
+    { path: 'blank', component: BlankComponent },
+  { path: '',   redirectTo: '/blank', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    BlankComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } 
+      { enableTracing: true }
     ),
     BrowserModule,
     CommonModule,
