@@ -25,13 +25,16 @@
   <div class="row">
     <div class="col-md-12">
 
-      <div class="map col-md-3" style="overflow-y: scroll; height:300px;">
+      <div class="map col-md-3" style="overflow-y: scroll; height:400px;">
         <div class="thumbnail">
           <div class="caption">
+            <h4><strong>Locations</strong></h4>
             <ul *ngFor="let m of markers; let i = index">
+              <br>
               <h4>{{m.name}}</h4>
               <h5>{{m.lat}}</h5>
               <h5>{{m.lng}}</h5>
+              <button (click)="removeMarker(m)" type="button" class="btn btn-default btn-xs">Remove</button>
             </ul>
           </div>
        </div>
@@ -55,6 +58,9 @@
       </div>
     </div>
   </div>
+<br>
+<br>
+<br>
 
   <div class="row">
     <div class="col-md-12">
@@ -75,9 +81,9 @@
 
             <label>Draggable</label>
             <select [(ngModel)]="markerDraggable" name="markerDraggable">
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
             <input type="submit" value="Map it!">
           </form>
         </div>
@@ -86,11 +92,11 @@
   </div>
 
 
-  <nav>
+  <nav (click)="scrollToBottom()">
 
     <a class="btn btn-primary btn-lg" routerLink="/blank" routerLinkActive="active">Home</a>
 
-    <a class="btn btn-primary btn-lg" routerLink="/about" routerLinkActive="active">About</a>
+    <a class="btn btn-primary btn-lg"  routerLink="/about" routerLinkActive="active">About</a>
 
   </nav>
   <router-outlet></router-outlet>

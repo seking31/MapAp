@@ -53,23 +53,41 @@ zoom: number = 10;
 
     var newLat = $event.coords.lat;
     var newLng = $event.coords.lng;
+
+    this._markerService.updateMarker(updMarker, newLat, newLng)
   }
-  addMarker(){
-    if(this.markerDraggable == 'Yes'){
-      var isDraggable = true;
-    }else{
-      var isDraggable = false;
-    }
-    var newMarker = {
-      name:this.markerName,
-      lat: parseFloat(this.markerLat),
-      lng: parseFloat(this.markerLng),
-      draggable: isDraggable,
-      openInfoWindow: true
-    }
-    this.markers.push(newMarker);
-    this._markerService.addMarker(newMarker)
+
+  // addMarker(){
+  //   if(this.markerDraggable == 'Yes'){
+  //     var isDraggable = true;
+  //   }else{
+  //     var isDraggable = false;
+  //   }
+  //   var newMarker = {
+  //     name:this.markerName,
+  //     lat: parseFloat(this.markerLat),
+  //     lng: parseFloat(this.markerLng),
+  //     draggable: isDraggable,
+  //     openInfoWindow: true
+  //   }
+  //   this.markers.push(newMarker);
+  //   this._markerService.addMarker(newMarker)
+  //  }
+  //
+   removeMarker(marker){
+     for(var i = 0; i < this.markers.length; i++){
+       if(marker.name == this.markers[i].name){
+
+            this.markers.splice(i, 1)
+       }
+     }
    }
+
+  scrollToBottom(){
+   document.body.scrollTop = document.body.scrollHeight;
+}
+
+
 }
 
 //Marker type
